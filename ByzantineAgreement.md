@@ -57,12 +57,16 @@ A solution to the IC problem can be easily adapted for consensus.
 
 ## Important results
 
----
+```
 Theorem 1: There's no algorithm that solves interactive consistency
-(or consensus) problem in a synchronous system of n processes, where
-f processes are byzantine, when n <= 3f.
----
+(or consensus) problem in a synchronous system of n processes
+communicating on plain messages, where f processes are byzantine, when
+n <= 3f. 
 
----
-Theorem 2: 
----
+NB1: When communication is authenticated, then the number of
+faulty processes is no longer bounded in solving the byzantine
+generals problem. That is,  f < n, as in the crash failure model.
+
+NB2: The failure upper bound for consensus problem becomes n >= 2f +
+1, when communication is authenticated.
+```
