@@ -49,6 +49,20 @@ proposed by the i'th process.
  - Agreement: no two non-faulty processes decide on different values
  - Termination: every non-faulty process decides
 
+### Relations between the three agreement problems
 
+Multiplexing n instances of the generals problem with distinct
+commanders provides a solution to the interactive consistency problem.
+A solution to the IC problem can be easily adapted for consensus. 
 
-## 
+## Important results
+
+---
+Theorem 1: There's no algorithm that solves interactive consistency
+(or consensus) problem in a synchronous system of n processes, where
+f processes are byzantine, when n <= 3f.
+---
+
+---
+Theorem 2: 
+---
