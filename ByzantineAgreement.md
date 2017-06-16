@@ -70,3 +70,10 @@ generals problem. That is,  f < n, as in the crash failure model.
 NB2: The failure upper bound for consensus problem becomes n >= 2f +
 1, when communication is authenticated.
 ```
+
+```
+Theorem 2: In the synchronous model, the round complexity is f + 1 for
+solving the byzantine generals, interactive consistency or consensus
+problem in the presence of up to f byzantine processes, authenticated
+or not.  
+```
