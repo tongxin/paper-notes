@@ -42,3 +42,9 @@ within t or fewer rounds, where t is the number of faults and n > t+1
 
 Proof sketch:
 
+Define an equivalence relation among all the execution histories. Say,
+S $\sim$ T if S and T is indistinguishable to some reliable process
+p, that is, p receives the same messages and behaves the same in both
+S and T. The proof strategy then is to construct a sequence of t-round
+executions s0, s1, ... sk such that s0 and sk have different consensus
+values while s0 $\sim$ s1 ... $\sim$ sk. 

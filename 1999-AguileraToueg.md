@@ -1,6 +1,6 @@
 ## A simple bivalency proof that t-resilient consensus requires t + 1 rounds
 
-Author: Marcos Kawazoe Aguilera and Sam Toueg
+Authors: Marcos Kawazoe Aguilera and Sam Toueg
 
 Publication: Information Processing Letters, 1999
 
