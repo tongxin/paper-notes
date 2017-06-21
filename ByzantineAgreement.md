@@ -55,6 +55,14 @@ Multiplexing n instances of the generals problem with distinct
 commanders provides a solution to the interactive consistency problem.
 A solution to the IC problem can be easily adapted for consensus. 
 
+### Difference between Byzantine agreement and stopping agreement
+
+The agreement properties are defined differently in these two
+problems. A byzantine agreement algorithm doesn't necessarily solve
+stopping agreement. For stopping, all processes that decide must
+agree. By byzantine, only non-faulty processes must agree.
+
+
 ## Important results
 
 ```
@@ -70,6 +78,14 @@ generals problem. That is,  f < n, as in the crash failure model.
 NB2: The failure upper bound for consensus problem becomes n >= 2f +
 1, when communication is authenticated.
 ```
+
+Proof example:
+
+Three nodes, A, B, C, with A and B correct and C byzantine.
+If A proposes 1 and B proposes 0, then for any algorithm by which A
+and B agree, C can simply negate its messages to either A or B so
+that A or B decides the opposite value.
+
 
 ```
 Theorem 2: In the synchronous model, the round complexity is f + 1 for
