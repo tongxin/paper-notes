@@ -48,3 +48,34 @@ p, that is, p receives the same messages and behaves the same in both
 S and T. The proof strategy then is to construct a sequence of t-round
 executions s0, s1, ... sk such that s0 and sk have different consensus
 values while s0 $\sim$ s1 ... $\sim$ sk. 
+
+```
+Theorem 3: Byzantine agreement can be achieved within t rounds using
+O(n^2) messages.
+```
+
+Construction. At round i, each process totally orders all the messages
+received during previous round. A processor only relays at most two
+messages about the first two distinct values it has not see before, to
+receivers which haven't signed over the values.  Each correct process
+sends at most two messages over each edge. If a correct process
+receives (v)-signed by p1, p2 ... pt+1, with v first time seen, then
+it's clear that p1 through pt are all faulty so pt+1 must be correct.
+The correct pt+1 means all the other correct processes should have
+received the same message.
+
+```
+Theorem 4: Byzantine agreement can be achieved within t+2 rounds
+using O(nt) messages.
+```
+
+Select t+1 processes as dedicated relayers.
+
+```
+Theorem 5: Byzantine agreement can be achieved on a complete network
+within t+1 rounds using O(nt) messages.
+```
+
+When n >= 2t+1, Choose 2t+1 processes to be active and let the others
+be passive.
+
