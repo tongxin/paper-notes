@@ -14,13 +14,17 @@ faults allowed for achieving interactive consistency, which is known
 to require 3t < n. 
 
 Proof idea:
-Consider k round consensus problems as a function F(s, p, r) over
-execution histories, recursing on the result produced over k - 1
-rounds. Now change the execution by modifying a message sent from a
-byzantine process in round k. Assuming k round consensus solution
-exists, then there exists 1-round consensus function tolerating 1
-faulty process. Now allow kth byzantine process fail in round k.
-By applying the 1-round consensus protocol, a sufficient condition
-for achieving k round consensus is the k-1 round output established a
-consensus. This can be easily achieved by applying the algorithm over
-the first k-1 rounds given k-1 failures. 
+
+case k == 1. Prove no algorithm exists that solves interactive
+consistency problem in 1 round given 1 actual fault. Construct a
+sequence of executions, with the first outputing all zeros and the last
+outputing all ones. The first execution and the last execution have no
+faults. All the rest have one fault. The sequene of executions are
+carefully arranged so that adjacent executions are indistinguishable
+to some correct process, which implies that the consensus outputs of
+all the executions should be the same. That contradicts the fact the
+first and last executions output differently.
+
+case k > 1. Reduce the case to 1-round consensus with input being the
+the k-1 round output.
+
