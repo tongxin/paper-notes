@@ -31,4 +31,36 @@ parallelization methods and several autotuning techniques.
 
 The paper was published in early 2020. It's fair to believe that many
 technical topics covered in this paper need to be updated.
- 
+
+
+## RAMMER: Enabling Holistic Deep Learning Compiler Optimizations with rTasks
+
+https://dblp.org/rec/conf/osdi/MaXYXMCHYZZ20.html
+
+The key observation is neural network parallelisms are normally exploited
+separately on two levels which are inter-operator and intra-operator.
+
+Two issues exist that hamper the two level scheduling scheme from achieving
+optimal performance. The first issue is kernel launching overhead.
+The second is lack of intra-operator parallelism.
+
+To solve the problems, Rammer first breaks operators into smaller sized 
+rTasks, which are fine grained and ideally minimum schedulable software 
+units. Then it groups rTasks into a series of rPrograms, each emitted to
+the accelerator for running. The key role of Rammer compiler is processing
+the rTask-based DAG graph and planning output rPrograms against vEUs, which
+are an abstraction of underlying accelerator execution units. The mapping
+from vEU to the hardware is carried out at run time.
+
+A program is organized as a two dimensional array of rTasks, with each
+row mapped to a virtual device. Then Rammer relies on scheduling heuristics
+to schedule the rTask graph on its wavefronts.
+
+Scheduling interface is straigntforward: Append to append an rTask to a
+virtual execution unit, Wait to exert task dependences.
+
+The rKernels can either be hand-tuned or automatically generated.
+
+That said, this work is positioned at one level higher than a kernel
+generating compiler, such as TVM.
+
